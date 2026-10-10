@@ -51,8 +51,8 @@ export default async function ProductPage({
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="breadcrumbs text-sm mb-6">
+    <div className="max-w-7xl mx-auto px-4 py-5 sm:py-8">
+      <div className="breadcrumbs text-xs sm:text-sm mb-4 sm:mb-6 overflow-x-auto whitespace-nowrap no-scrollbar">
         <ul>
           <li>
             <Link href="/">হোম</Link>
@@ -62,68 +62,72 @@ export default async function ProductPage({
               {product.categoryNameBn}
             </Link>
           </li>
-          <li className="font-semibold">{product.nameBn}</li>
+          <li className="font-semibold text-gray-800">{product.nameBn}</li>
         </ul>
       </div>
 
-      <div className="bg-white border rounded-xl p-6 mb-8">
-        <div className="flex flex-col md:flex-row md:items-start gap-6">
-          <div className="flex items-center gap-4">
-            <span className="text-6xl">{product.image}</span>
-            <div>
-              <h1 className="text-3xl font-bold text-gray-800">
-                {product.nameBn}
-              </h1>
-              <p className="text-gray-500 mt-1">
-                আজকের বাজারের সর্বশেষ দাম ও বিস্তারিত
-              </p>
-              <div className="flex flex-wrap gap-2 mt-2">
-                <span className="badge badge-outline">{product.categoryIcon} {product.categoryNameBn}</span>
-                <span className="badge badge-outline">{getUnitBn(product.unit)}</span>
-                <span
-                  className={`badge ${
-                    product.change.dir === "up"
-                      ? "badge-error text-white"
-                      : product.change.dir === "down"
-                      ? "badge-success text-white"
-                      : "badge-ghost"
-                  }`}
-                >
-                  {product.change.dir === "up"
-                    ? `▲ ${toBengaliNumber(Math.abs(product.change.pct).toFixed(1))}%`
+      <div className="bg-white border border-gray-200 rounded-2xl sm:rounded-3xl p-5 sm:p-7 mb-6 sm:mb-8 shadow-sm">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 sm:gap-6">
+          <span className="text-5xl sm:text-6xl p-3 bg-gray-50 rounded-2xl shrink-0">
+            {product.image}
+          </span>
+          <div className="min-w-0 flex-1">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              {product.nameBn}
+            </h1>
+            <p className="text-gray-500 text-xs sm:text-sm mt-1">
+              আজকের বাজারের সর্বশেষ দাম ও বিস্তারিত
+            </p>
+            <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-3">
+              <span className="badge badge-outline text-xs">
+                {product.categoryIcon} {product.categoryNameBn}
+              </span>
+              <span className="badge badge-outline text-xs">
+                {getUnitBn(product.unit)}
+              </span>
+              <span
+                className={`badge text-xs font-semibold ${
+                  product.change.dir === "up"
+                    ? "badge-error text-white"
                     : product.change.dir === "down"
-                    ? `▼ ${toBengaliNumber(Math.abs(product.change.pct).toFixed(1))}%`
-                    : `— ${toBengaliNumber("0.0")}%`}
-                </span>
-              </div>
+                    ? "badge-success text-white"
+                    : "badge-ghost"
+                }`}
+              >
+                {product.change.dir === "up"
+                  ? `▲ ${toBengaliNumber(Math.abs(product.change.pct).toFixed(1))}%`
+                  : product.change.dir === "down"
+                  ? `▼ ${toBengaliNumber(Math.abs(product.change.pct).toFixed(1))}%`
+                  : `— ${toBengaliNumber("0.0")}%`}
+              </span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-green-50 border border-green-100 rounded-xl p-4">
-          <p className="text-sm text-gray-500">সর্বনিম্ন দাম</p>
-          <p className="text-xl font-bold text-green-700">
-            {formatPrice(minPrice)} <span className="text-sm font-normal">টাকা</span>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+        <div className="bg-green-50/80 border border-green-200/60 rounded-xl sm:rounded-2xl p-3.5 sm:p-5">
+          <p className="text-xs sm:text-sm text-gray-500">সর্বনিম্ন দাম</p>
+          <p className="text-lg sm:text-2xl font-bold text-green-700 mt-1">
+            {formatPrice(minPrice)} <span className="text-xs sm:text-sm font-normal text-gray-600">টাকা</span>
           </p>
         </div>
-        <div className="bg-red-50 border border-red-100 rounded-xl p-4">
-          <p className="text-sm text-gray-500">সর্বোচ্চ দাম</p>
-          <p className="text-xl font-bold text-red-600">
-            {formatPrice(maxPrice)} <span className="text-sm font-normal">টাকা</span>
+        <div className="bg-red-50/80 border border-red-200/60 rounded-xl sm:rounded-2xl p-3.5 sm:p-5">
+          <p className="text-xs sm:text-sm text-gray-500">সর্বোচ্চ দাম</p>
+          <p className="text-lg sm:text-2xl font-bold text-red-600 mt-1">
+            {formatPrice(maxPrice)} <span className="text-xs sm:text-sm font-normal text-gray-600">টাকা</span>
           </p>
         </div>
-        <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-          <p className="text-sm text-gray-500">গড় দাম</p>
-          <p className="text-xl font-bold text-blue-600">
-            {formatPrice(avgPrice)} <span className="text-sm font-normal">টাকা</span>
+        <div className="bg-blue-50/80 border border-blue-200/60 rounded-xl sm:rounded-2xl p-3.5 sm:p-5">
+          <p className="text-xs sm:text-sm text-gray-500">গড় দাম</p>
+          <p className="text-lg sm:text-2xl font-bold text-blue-600 mt-1">
+            {formatPrice(avgPrice)} <span className="text-xs sm:text-sm font-normal text-gray-600">টাকা</span>
           </p>
         </div>
-        <div className="bg-yellow-50 border border-yellow-100 rounded-xl p-4">
-          <p className="text-sm text-gray-500">আজকের দাম</p>
-          <p className="text-xl font-bold text-gray-800">
-            {formatPrice(product.today)} <span className="text-sm font-normal">টাকা</span>
+        <div className="bg-amber-50/80 border border-amber-200/60 rounded-xl sm:rounded-2xl p-3.5 sm:p-5">
+          <p className="text-xs sm:text-sm text-gray-500">আজকের দাম</p>
+          <p className="text-lg sm:text-2xl font-bold text-gray-900 mt-1">
+            {formatPrice(product.today)} <span className="text-xs sm:text-sm font-normal text-gray-600">টাকা</span>
           </p>
         </div>
       </div>

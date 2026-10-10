@@ -68,3 +68,12 @@ body, button, input, select, textarea, optgroup {
   background: #16a34a;
   border-radius: 3px;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

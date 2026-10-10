@@ -1,152 +1,247 @@
-# 🛒 বাজার দর (BazarDor) — আজকের বাজার দর এক নজরে
+# 🛒 BazarDor (বাজার দর) — Daily Commodity Price Tracker
 
-> **প্রয়োজনীয় নিত্যপণ্যের দৈনিক বাজার দর পর্যবেক্ষণ, তুলনা ও বিশ্লেষণ প্ল্যাটফর্ম।**  
-> চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার বাজারভিত্তিক সর্বশেষ মূল্য তালিকা, গড় দাম, সর্বনিম্ন-সর্বোচ্চ এবং দামের পরিবর্তন এক প্ল্যাটফর্মে।
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-bazardor--amber.vercel.app-success?style=for-the-badge&logo=vercel)](https://bazardor-amber.vercel.app)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-imranonweb%2Fbazardor-181717?style=for-the-badge&logo=github)](https://github.com/imranonweb/bazardor)
+[![Next.js](https://img.shields.io/badge/Next.js-16.4-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
+[![DaisyUI](https://img.shields.io/badge/DaisyUI-v5-5A0EF8?style=for-the-badge&logo=daisyui)](https://daisyui.com)
 
----
+> **BazarDor** is a modern, responsive full-stack web application designed for tracking and comparing daily essential commodity prices across major markets in Bangladesh. Users can observe real-time price fluctuations, view top price risers and fallers, filter by category with numeric Bengali numeral sorting, inspect market-specific breakdown tables, and manage their user profile with photo upload.
 
-## 🔗 গুরুত্বপূর্ণ লিংক (Submission Links)
-
-- **🌐 লাইভ সাইট (Live Link):** [https://bazardor-amber.vercel.app](https://bazardor-amber.vercel.app)
-- **📂 গিটহাব রিপোজিটরি (GitHub Repository):** [https://github.com/imranonweb/bazardor](https://github.com/imranonweb/bazardor)
-
----
-
-## 📖 সংক্ষিপ্ত পরিচিতি (Project Overview)
-
-**বাজার দর (BazarDor)** হলো একটি আধুনিক, রেসপনসিভ ওয়েব অ্যাপ্লিকেশন যেখানে ব্যবহারকারীরা প্রতিদিনের নিত্যপ্রয়োজনীয় পণ্যের বাজার দর এক নজরে দেখতে পারবেন। অ্যাপ্লিকেশনটিতে রয়েছে লাইভ প্রাইস টিকার (Marquee), দাম বৃদ্ধি ও হ্রাসের শীর্ষ পণ্যের তালিকা, ক্যাটাগরিভিত্তিক ফিল্টারিং ও সঠিক বাংলা সংখ্যায় সর্টিং, এবং অথেন্টিকেটেড ব্যবহারকারীদের জন্য বাজারভিত্তিক বিস্তারিত মূল্য তুলনা ও প্রোফাইল ব্যবস্থাপনা।
 
 ---
 
-## 🛠️ ব্যবহৃত প্রযুক্তিসমূহ (Technologies Used)
+## 📖 Table of Contents
 
-| প্রযুক্তি (Technology) | ভূমিকা (Purpose) |
+1. [Project Overview](#-project-overview)
+2. [Technologies Used](#-technologies-used)
+3. [Key Features](#-key-features)
+5. [Project Architecture & Directory Structure](#-project-architecture--directory-structure)
+6. [Environment Variables](#-environment-variables)
+7. [OAuth Setup Guide (Google & GitHub)](#-oauth-setup-guide-google--github)
+8. [Local Development Setup](#-local-development-setup)
+9. [Production Build & Deployment](#-production-build--deployment)
+
+
+---
+
+## 💡 Project Overview
+
+In everyday life in Bangladesh, prices of staple food items (rice, lentils, edible oil, onions, vegetables, fish, chicken, eggs, and spices) fluctuate rapidly across different wholesale and retail markets. **BazarDor** bridges the information gap by providing an intuitive, transparent, and aesthetically polished platform:
+
+- **Live Price Ticker:** Infinite marquee displaying current rates and trend indicators (▲/▼).
+- **Market Highlights:** Fast visual discovery of items that gained or dropped in price today.
+- **Deep Market Breakdown:** Division-wise breakdown (Dhaka, Chattogram, Rajshahi, Khulna, Sylhet, Barishal, Rangpur) with minimum, maximum, and average rates.
+- **Bangla-First Experience:** Crafted with authentic Bengali typography using **Hind Siliguri**, accurate Bengali numerals, and formatted dates.
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
 |---|---|
-| **Next.js 16 (App Router)** | আধুনিক ফুলস্ট্যাক ফ্রেমওয়ার্ক, সার্ভার ও ক্লায়েন্ট রেন্ডারিং |
-| **TypeScript** | টাইপ সেফটি ও কোড কোয়ালিটি নিশ্চিতকরণ |
-| **Tailwind CSS v4** | ইউটিলিটি-ফার্স্ট মডার্ন সিএসএস ফ্রেমওয়ার্ক |
-| **DaisyUI v5** | কাস্টম `bazardor` থিমসহ এক্সেসিবল ইউআই উপাদান |
-| **BetterAuth** | মডার্ন অথেন্টিকেশন (Email/Password, Google OAuth, GitHub OAuth) |
-| **MongoDB Atlas** | ব্যবহারকারী ও সেশন ডেটা সংরক্ষণে ক্লাউড ডেটাবেস |
-| **Next Font (Hind Siliguri)** | পরিচ্ছন্ন ও মানসম্মত বাংলা টাইপোগ্রাফি |
-| **React Hot Toast** | মসৃণ ও দৃষ্টিনন্দন নোটিফিকেশন সিস্টেম |
+| **Next.js 16 (App Router)** | Full-stack React framework utilizing Server & Client Components, Turbopack, and Dynamic Routing |
+| **TypeScript** | Type safety, maintainability, and structured data contracts |
+| **Tailwind CSS v4** | Modern utility-first styling and responsive layouts |
+| **DaisyUI v5** | Accessible UI components styled with the custom `bazardor` OKLCH theme token palette |
+| **BetterAuth** | Secure authentication engine supporting Email/Password, Google OAuth, and GitHub OAuth |
+| **MongoDB Atlas** | Cloud database persistence with MongoDB native driver replica set connectivity |
+| **Next Font (Hind Siliguri)** | Google Font integration with zero layout shift (CLS) and Bengali typography |
+| **React Hot Toast** | Responsive toast feedback for user actions and route guards |
 
 ---
 
-## 🌟 মূল বৈশিষ্ট্যসমূহ (Key Features)
+## 🌟 Key Features
 
-### ১. 🔝 ইন্টারেক্টিভ হেডার, ক্যাটাগরি নেভিগেশন ও প্রাইস টিকার (Marquee)
-- ফিগমা ডিজাইনের সাথে নিখুঁত মিল রেখে তৈরি ডাবল-রো নেভিগেশন বার।
-- বাঁ পাশে লোগো `🛒 বাজার দর` এবং স্বয়ংক্রিয় বাংলা ক্যালেন্ডার তারিখ।
-- ক্যাটাগরিভিত্তিক দ্রুত ফিল্টারিং এবং অ্যাক্টিভ ক্যাটাগরি হাইলাইট।
-- হেডারের নিচে অসীম স্ক্রলিং লাইভ **প্রাইস টিকার**, যা হোভার করলে থেমে যায় এবং প্রতিটি পণ্যের দাম ও শতাংশের পরিবর্তন (▲/▼) দেখায়।
+### 1. 🔝 Interactive Header & Swipable Category Bar
+- **Branding:** Displays the logo (`🛒 বাজার দর`) alongside real-time Bengali calendar dates.
+- **Swipable Category Navigation:** Horizontal scrollable category navigation bar (`overflow-x-auto`) for seamless mobile touch navigation.
+- **Infinite Price Ticker (Marquee):** Smooth scrolling price strip showcasing commodity emojis, names, prices per unit, and percentage change tags. Pauses on hover.
 
-### ২. 🅱️ হিরো ব্যানার ও স্মুথ স্ক্রলিং CTA
-- তারিখের আইব্রো ব্যাজ, আকর্ষণীয় শিরোনাম এবং সারসংক্ষেপ।
-- এক ক্লিকে সরাসরি পেজের `#সব-পণ্য` সেকশনে নিয়ে যাওয়ার জন্য মসৃণ স্ক্রলিং CTA বাটন।
-- ডানপাশে অপ্টিমাইজড ভেক্টর চিত্র।
+### 2. 🅱️ Hero Banner with Smooth Anchor Navigation
+- Date eyebrow badge, headline, and contextual summary text.
+- Primary **CTA Button** that smoothly scrolls the user down to `#সব-পণ্য` on the same page.
+- Clean vector illustration (`bazar-hero.svg` and `bazar-hero.png`).
 
-### ৩. ⚖️ গতিশীল হোমপেজ পণ্য সেকশন (Top Risers, Fallers & All Products)
-- **আজ দাম বেড়েছে ▲:** শীর্ষ ৬টি মূল্যবৃদ্ধির পণ্য কার্ড।
-- **আজ দাম কমেছে ▼:** শীর্ষ ৬টি মূল্যহ্রাসের পণ্য কার্ড।
-- **সব পণ্য:** গ্রিড লেআউটে সমস্ত পণ্যের কার্ড (ইমোজি, পণ্যের নাম, পরিমাপের একক, আজকের দাম ও শতকরা পরিবর্তনের ব্যাজ)।
+### 3. ⚖️ Dynamic Home Market Sections
+- **Section A — "আজ দাম বেড়েছে ▲":** Highlights the top 6 price risers sorted by percentage increase.
+- **Section B — "আজ দাম কমেছে ▼":** Highlights the top 6 price fallers sorted by percentage decrease.
+- **Section C — "সব পণ্য":** Displays the complete catalog in a responsive grid (1 column on mobile, 2 on tablet, 3–4 on desktop).
 
-### ৪. 🔒 সুরক্ষিত বিস্তারিত পণ্য পৃষ্ঠা (`/product/[slug]`)
-- অথেন্টিকেটেড প্রটেক্টেড রুট — লগইন ছাড়া প্রবেশ করলে স্বয়ংক্রিয়ভাবে নোটিফিকেশনসহ সাইন ইন পেজে রিডাইরেক্ট করে।
-- পণ্যের সর্বোচ্চ, সর্বনিম্ন, গড় এবং আজকের দামের সারসংক্ষেপ কার্ড।
-- বিভাগভিত্তিক বাজার তালিকা ও দর তুলনা টেবিল (ঢাকা, চট্টগ্রাম, রাজশাহী ইত্যাদি)।
-- আজকের, গতকালের, গত সপ্তাহের ও গত মাসের মূল্যের তুলনামূলক কার্ড।
+### 4. 🔒 Protected Product Details (`/product/[slug]`)
+- **Route Protection:** Enforced through middleware/proxy; unauthenticated users are redirected to `/signin` with informative toast feedback and callback URL retention.
+- **Market Price Summary:** Minimum, Maximum, Average, and Today's Price summary cards.
+- **Division-wise Market Breakdown:** Grouped tables showing wholesale and retail prices across divisions.
+- **Historical Comparison:** Cards comparing today's rate with yesterday, last week, and last month.
 
-### ৫. 🔍 ক্যাটাগরি ফিল্টারিং ও উন্নত সর্টিং (Challenge C1)
-- প্রতিটি ক্যাটাগরির নিজস্ব পেজ এবং মোট পণ্যের বাংলা সংখ্যা গণনা।
-- **সাজান (Sort):** `ডিফল্ট`, `দাম: কম থেকে বেশি`, এবং `দাম: বেশি থেকে কম` — যা খাঁটি নিউমেরিক মানে সাজায়।
-- অবৈধ ক্যাটাগরির জন্য ফ্রেন্ডলি এম্পটি স্টেট ও হোম পেজে ফেরার বাটন।
+### 5. 🔍 Category Filtering & Bengali Numeric Sorting (Challenge C1)
+- Category-filtered product grid with total product count in Bengali numerals.
+- **Sort Dropdown:** Options for `ডিফল্ট`, `দাম: কম থেকে বেশি`, and `দাম: বেশি থেকে কম`. Accurately sorts prices by numeric value rather than lexicographical string comparison.
+- **Graceful Empty State:** Friendly message and CTA to return home if a category has no products.
 
-### ৬. 🔐 পূর্ণাঙ্গ অথেন্টিকেশন ও প্রোফাইল ছবি আপলোড (Challenge C3)
-- BetterAuth চালিত ইমেইল/পাসওয়ার্ড ও সোশ্যাল লগইন (Google ও GitHub)।
-- **পাসওয়ার্ড নিশ্চিতকরণ:** অ্যাকাউন্ট খোলার সময় পাসওয়ার্ড দুইবার লেখার বাধ্যতামূলক ভ্যালিডেশন।
-- **প্রোফাইল আপডেট ও ছবি আপলোড:** তথ্য আপডেট পেজে ব্যবহারকারী নিজের নাম পরিবর্তন এবং ডিভাইস থেকে প্রোফাইল ছবি আপলোড (Base64 প্রিভিউ) বা ছবির URL দিতে পারেন।
-- সফল আপডেটের সাথে সাথে নেভবার ও প্রোফাইল পেজে তাৎক্ষণিক অ্যাভাটার ও নাম আপডেট।
+### 6. 🔐 Complete Authentication System
+- **Sign In (`/signin`):** Supports Email/Password login, Google OAuth, and GitHub OAuth with skeleton loading states and translated Bengali error messages.
+- **Sign Up (`/signup`):** Includes mandatory **Password Confirmation** validation (must enter password twice).
+- **Toast Feedback:** Informative toast alerts for sign-in, registration, sign-out, and validation errors.
 
-### ৭. 🎨 নিখুঁত বাংলা টাইপোগ্রাফি ও রেসপনসিভ ডিজাইন
-- ডেমো ওয়েবসাইটের অনুরূপ **Hind Siliguri** ফন্ট সমগ্র ওয়েবসাইটে প্রযোজ্য।
-- ডেমো ওয়েবসাইটের অফিসিয়াল `bazardor` ওকালচ কালার প্যালেট ও বর্ডার রেডিয়াস।
-- মোবাইল, ট্যাবলেট ও ডেস্কটপ সব ডিভাইসে সম্পূর্ণ প্রতিক্রিয়াশীল (Responsive)।
-- ডেটা ফেচিংয়ের সময় ফ্রেন্ডলি স্কেলেটন লোডার (Skeleton loaders)।
-- চমৎকার ৪MD ফ্রেন্ডলি ৪০৪ পেজ (`/_not-found`)।
+### 7. 👤 User Profile & Photo Upload (Challenge C3)
+- **Profile View (`/profile`):** Displays avatar, name, and email with direct navigation to the update page.
+- **Profile Update (`/profile/update`):** Allows users to update their full name and **upload a profile picture** via local file picker (with automatic Base64 encoding for database storage) or direct URL.
+- **Live Avatar Synchronization:** The updated photo and name instantly reflect in the Navbar dropdown and Profile page without manual refresh.
+
+### 8. 📱 Universal Device Responsiveness & Design Polish
+- Fully tested across mobile (< 640px), tablet (640px–1024px), and desktop (> 1024px) screens.
+- Custom favicon (`icon.png`) with green shopping cart logo for browser tabs and mobile bookmarks.
+- Custom friendly 404 page (`/_not-found`) with return home navigation.
+- Skeleton loaders during asynchronous data fetching to eliminate layout shift.
 
 ---
 
-## ⚙️ এনভায়রনমেন্ট ভেরিয়েবল সেটআপ (.env.local)
+## 📂 Project Architecture & Directory Structure
 
-প্রকল্পটি চালু করতে রুট ডিরেক্টরিতে `.env.local` ফাইল তৈরি করে নিচের ভেরিয়েবলগুলো দিন:
-
-```env
-# MongoDB Atlas Connection
-MONGODB_URI=mongodb://username:password@cluster-hosts/bazardor?ssl=true&replicaSet=atlas-shard-0&authSource=admin&retryWrites=true&w=majority
-MONGODB_URL=mongodb://username:password@cluster-hosts/bazardor?ssl=true&replicaSet=atlas-shard-0&authSource=admin&retryWrites=true&w=majority
-
-# Better Auth Secret & Base URL
-BETTER_AUTH_SECRET=your_super_secret_key_at_least_32_chars
-BETTER_AUTH_URL=http://localhost:3000
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-
-# Google OAuth Credentials (ঐচ্ছিক সোশ্যাল লগইন)
-GOOGLE_CLIENT_ID=your_google_client_id.apps.googleusercontent.com
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-
-# GitHub OAuth Credentials (ঐচ্ছিক সোশ্যাল লগইন)
-GITHUB_CLIENT_ID=your_github_client_id
-GITHUB_CLIENT_SECRET=your_github_client_secret
+```plaintext
+bazardor/
+├── public/
+│   ├── bazar-hero.png          # Authentic assignment hero graphic
+│   ├── bazar-hero.svg          # Optimized vector illustration
+│   ├── logo-icon.png           # Authentic assignment favicon/logo
+│   └── icon.png                # Public app icon
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── auth/[...all]/  # BetterAuth catch-all API route handler
+│   │   ├── category/[slug]/    # Dynamic category listing page with sorting
+│   │   ├── product/[slug]/     # Protected product details page
+│   │   ├── profile/
+│   │   │   ├── page.tsx        # User profile summary page
+│   │   │   └── update/         # User profile update & photo upload page
+│   │   ├── signin/             # Sign-in page with social login buttons
+│   │   ├── signup/             # Sign-up page with password confirmation
+│   │   ├── globals.css         # Tailwind v4, DaisyUI, OKLCH tokens, marquee
+│   │   ├── layout.tsx          # Root layout with Hind Siliguri font and Navbar
+│   │   ├── loading.tsx         # Root skeleton loading state
+│   │   ├── not-found.tsx       # Custom 404 friendly not-found page
+│   │   └── page.tsx            # Home page (Hero, Risers, Fallers, All Products)
+│   ├── components/
+│   │   ├── AllProducts.tsx     # Responsive grid of all commodity cards
+│   │   ├── Footer.tsx          # Clean theme-aligned footer
+│   │   ├── Hero.tsx            # Hero banner with smooth anchor link
+│   │   ├── Navbar.tsx          # Dual-row responsive navbar with user dropdown
+│   │   ├── PriceFallers.tsx    # Top 6 fallers section (▼)
+│   │   ├── PriceRisers.tsx     # Top 6 risers section (▲)
+│   │   ├── PriceTicker.tsx     # Infinite marquee ticker with hover pause
+│   │   ├── ProductCard.tsx     # Reusable commodity card component
+│   │   └── SortDropdown.tsx    # Accessible category sorting component
+│   ├── lib/
+│   │   ├── auth.ts             # BetterAuth server config & MongoDB connection
+│   │   ├── auth-client.ts      # BetterAuth React client config
+│   │   └── utils.ts            # API fetcher, Bengali numeral converter & types
+│   └── proxy.ts                # Next.js route protection middleware
+├── .env.local                  # Local environment configuration
+├── next.config.ts              # Next.js Turbopack configuration
+├── package.json                # Project dependencies and npm scripts
+├── tsconfig.json               # TypeScript configuration
+└── README.md                   # Project documentation
 ```
 
 ---
 
-## 🔧 সোশ্যাল লগইন কনফিগারেশন গাইড (Google & GitHub)
+## ⚙️ Environment Variables
 
-আপনি যদি সোশ্যাল লগইন ব্যবহার করতে চান, তবে কনসোলে নিচের **Authorized Redirect URI** যুক্ত করুন:
+Create a `.env.local` file in the root directory:
 
-1. **Google Cloud Console:**
-   - **Authorized redirect URIs:**
-     - লোকাল: `http://localhost:3000/api/auth/callback/google`
-     - প্রোডাকশন: `https://your-domain.vercel.app/api/auth/callback/google`
+```env
+# MongoDB Atlas Connection (Direct Replica Set URI recommended)
+MONGODB_URI=mongodb://username:password@host1:27017,host2:27017,host3:27017/bazardor?ssl=true&replicaSet=atlas-shard-0&authSource=admin&retryWrites=true&w=majority
+MONGODB_URL=mongodb://username:password@host1:27017,host2:27017,host3:27017/bazardor?ssl=true&replicaSet=atlas-shard-0&authSource=admin&retryWrites=true&w=majority
 
-2. **GitHub Developer Settings:**
-   - **Authorization callback URL:**
-     - লোকাল: `http://localhost:3000/api/auth/callback/github`
-     - প্রোডাকশন: `https://your-domain.vercel.app/api/auth/callback/github`
+# BetterAuth Secrets & Application URL
+BETTER_AUTH_SECRET=your_secure_random_secret_at_least_32_characters
+BETTER_AUTH_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# Google OAuth Credentials
+GOOGLE_CLIENT_ID=your_google_client_id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+# GitHub OAuth Credentials
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+```
+
+> **Note on Vercel:** In production on Vercel, set `NEXT_PUBLIC_APP_URL` and `BETTER_AUTH_URL` to `https://bazardor-amber.vercel.app` (or your live domain).
 
 ---
 
-## 💻 লোকাল মেশিনে চালানোর নিয়ম (Getting Started)
+## 🔧 OAuth Setup Guide (Google & GitHub)
 
-১. রিপোজিটরিটি ক্লোন করুন:
+### Google Cloud Console Configuration
+1. Open [Google Cloud Console Credentials](https://console.cloud.google.com/apis/credentials).
+2. Select your OAuth 2.0 Web Client.
+3. Under **Authorised JavaScript origins**, add:
+   - `http://localhost:3000`
+   - `https://bazardor-amber.vercel.app`
+4. Under **Authorised redirect URIs**, add:
+   - `http://localhost:3000/api/auth/callback/google`
+   - `https://bazardor-amber.vercel.app/api/auth/callback/google`
+5. Under the **Audience** (OAuth Consent Screen) tab:
+   - If the app is in **Testing** mode, add your Gmail under **Test users** (`+ Add users`).
+   - Or click **Publish app** so any user/examiner can authenticate freely.
+
+### GitHub Developer Settings Configuration
+1. Open [GitHub Developer Settings > OAuth Apps](https://github.com/settings/developers).
+2. Select your OAuth application.
+3. Set **Homepage URL** to: `https://bazardor-amber.vercel.app/`
+4. Set **Authorization callback URL** to:
+   - `https://bazardor-amber.vercel.app/api/auth/callback/github`
+5. Save changes.
+
+---
+
+## 💻 Local Development Setup
+
+### 1. Clone the repository
 ```bash
 git clone https://github.com/imranonweb/bazardor.git
 cd bazardor
 ```
 
-২. ডিপেন্ডেন্সি ইনস্টল করুন:
+### 2. Install dependencies
 ```bash
 npm install
 ```
 
-৩. ডেভেলপমেন্ট সার্ভার চালু করুন:
+### 3. Configure environment variables
+Ensure `.env.local` is present in the root directory with valid credentials.
+
+### 4. Run the development server
 ```bash
 npm run dev
 ```
 
-৪. ব্রাউজারে ওপেন করুন:
-[http://localhost:3000](http://localhost:3000)
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 📦 প্রোডাকশন বিল্ড ও ডিপ্লয়মেন্ট (Build & Deployment)
+## 📦 Production Build & Deployment
 
-প্রোডাকশন বান্ডিল তৈরি ও পরীক্ষা করতে:
+To validate type checks and create an optimized production bundle:
+
 ```bash
 npm run build
 npm run start
 ```
 
-Vercel-এ ডিপ্লয় করার সময় Environment Variables সেকশনে `.env.local`-এর সকল কি ও ভ্যালু যুক্ত করুন এবং `NEXT_PUBLIC_APP_URL` ও `BETTER_AUTH_URL` আপনার Vercel ডোমেইনে সেট করুন।
+### Deploying to Vercel
+1. Import the repository from GitHub on [Vercel](https://vercel.com).
+2. Add all environment variables listed above in the Vercel project settings.
+3. Deploy! Vercel handles continuous deployment on every git push to `main`.
+
+---
+
+## 👤 Author
+
+**Al Imran Emon**  
+- **GitHub:** [@imranonweb](https://github.com/imranonweb)  
+- **Live Application:** [https://bazardor-amber.vercel.app](https://bazardor-amber.vercel.app)

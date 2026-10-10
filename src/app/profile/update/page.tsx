@@ -81,8 +81,8 @@ export default function UpdateProfilePage() {
     <div className="max-w-lg mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold text-gray-800 mb-6">তথ্য আপডেট করুন</h1>
 
-      <div className="card bg-white border border-gray-200 shadow">
-        <div className="card-body">
+      <div className="card bg-white border border-gray-200 shadow-sm rounded-2xl sm:rounded-3xl">
+        <div className="card-body p-5 sm:p-7">
           <form onSubmit={handleUpdate} className="space-y-5">
             <div className="flex flex-col items-center gap-3">
               <div className="avatar">

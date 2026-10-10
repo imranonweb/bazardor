@@ -29,9 +29,9 @@ export default function ProfilePage() {
     <div className="max-w-2xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold text-gray-800 mb-6">আমার প্রোফাইল</h1>
 
-      <div className="card bg-white border shadow">
-        <div className="card-body">
-          <div className="flex items-center gap-4 mb-6">
+      <div className="card bg-white border border-gray-200 shadow-sm rounded-2xl sm:rounded-3xl">
+        <div className="card-body p-5 sm:p-7">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 mb-6">
             <div className="avatar">
               <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-green-500/20 shadow-sm">
                 {session.user.image ? (
@@ -48,10 +48,10 @@ export default function ProfilePage() {
               </div>
             </div>
             <div>
-              <h2 className="text-xl font-semibold text-gray-800">
+              <h2 className="text-xl font-bold text-gray-800">
                 {session.user.name}
               </h2>
-              <p className="text-gray-500">{session.user.email}</p>
+              <p className="text-gray-500 text-sm mt-0.5">{session.user.email}</p>
             </div>
           </div>
 
