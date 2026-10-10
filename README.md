@@ -8,7 +8,7 @@
 ## 🔗 গুরুত্বপূর্ণ লিংক (Submission Links)
 
 - **🌐 লাইভ সাইট (Live Link):** [https://bazardor.vercel.app](https://bazardor.vercel.app) *(বা আপনার ডিপ্লয়মেন্ট লিংক)*
-- **📂 গিটহাব রিপোজিটরি (GitHub Repository):** [https://github.com/your-username/bazardor](https://github.com/your-username/bazardor)
+- **📂 গিটহাব রিপোজিটরি (GitHub Repository):** [https://github.com/imranonweb/bazardor](https://github.com/imranonweb/bazardor)
 
 ---
 
@@ -122,7 +122,7 @@ GITHUB_CLIENT_SECRET=your_github_client_secret
 
 ১. রিপোজিটরিটি ক্লোন করুন:
 ```bash
-git clone https://github.com/your-username/bazardor.git
+git clone https://github.com/imranonweb/bazardor.git
 cd bazardor
 ```
 
