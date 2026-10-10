@@ -5,35 +5,38 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/product/${product.slug}`}
-      className="card bg-white border border-gray-100 hover:shadow-lg hover:border-green-200 transition-all duration-300 cursor-pointer group"
+      className="card bg-white border border-gray-200 hover:border-green-500 hover:shadow-md transition duration-200 rounded-2xl cursor-pointer group"
     >
-      <div className="card-body p-4">
-        <div className="flex items-center gap-3 mb-2">
-          <span className="text-3xl group-hover:scale-110 transition-transform">
+      <div className="card-body p-4 gap-3">
+        <div className="flex items-start gap-3">
+          <span
+            aria-hidden="true"
+            className="grid size-12 shrink-0 place-items-center rounded-xl bg-gray-100 text-2xl group-hover:scale-105 transition-transform"
+          >
             {product.image}
           </span>
-          <div>
-            <h3 className="font-semibold text-gray-800 group-hover:text-green-700 transition-colors">
+          <div className="min-w-0">
+            <h3 className="truncate text-base font-semibold text-gray-900 group-hover:text-green-700 transition-colors">
               {product.nameBn}
             </h3>
-            <p className="text-xs text-gray-400">{getUnitBn(product.unit)}</p>
+            <p className="text-xs text-gray-500 mt-0.5">{getUnitBn(product.unit)}</p>
           </div>
         </div>
 
-        <div className="flex items-end justify-between mt-auto">
+        <div className="flex items-end justify-between gap-2 mt-auto pt-2 border-t border-gray-100">
           <div>
             <p className="text-xs text-gray-400">আজকের দাম</p>
-            <p className="text-lg font-bold text-gray-800">
-              {formatPrice(product.today)} <span className="text-sm font-normal">টাকা</span>
+            <p className="text-xl font-bold text-gray-900">
+              {formatPrice(product.today)} <span className="text-sm font-medium text-gray-600">টাকা</span>
             </p>
           </div>
           <span
-            className={`badge badge-sm ${
+            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${
               product.change.dir === "up"
-                ? "badge-error text-white"
+                ? "bg-red-50 text-red-600 border border-red-200"
                 : product.change.dir === "down"
-                ? "badge-success text-white"
-                : "badge-ghost"
+                ? "bg-green-50 text-green-700 border border-green-200"
+                : "bg-gray-100 text-gray-600 border border-gray-200"
             }`}
           >
             {product.change.dir === "up"

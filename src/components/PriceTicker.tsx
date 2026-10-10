@@ -24,15 +24,15 @@ export default function PriceTicker() {
   const tickerItems = [...products, ...products];
 
   return (
-    <div className="bg-gray-50 border-t border-gray-100 overflow-hidden">
-      <div className="animate-marquee whitespace-nowrap py-1.5 flex">
+    <div className="bg-white border-t border-b border-gray-200 overflow-hidden" role="marquee" aria-label="আজকের দাম পরিবর্তনের তালিকা">
+      <div className="animate-marquee whitespace-nowrap py-2 flex">
         {tickerItems.map((product, index) => (
           <span
             key={`${index}`}
-            className="inline-flex items-center gap-1.5 mx-4 text-sm"
+            className="inline-flex items-center gap-1.5 border-e border-gray-200 px-4 text-sm"
           >
             <span>{product.image}</span>
-            <span className="font-medium text-gray-700">{product.nameBn}</span>
+            <span className="font-medium text-gray-800">{product.nameBn}</span>
             <span className="text-gray-500">
               {formatPrice(product.today)} টাকা/{unitMap[product.unit] || product.unit}
             </span>
@@ -41,7 +41,7 @@ export default function PriceTicker() {
                 product.change.dir === "up"
                   ? "text-red-500"
                   : product.change.dir === "down"
-                  ? "text-green-500"
+                  ? "text-green-600"
                   : "text-gray-400"
               }`}
             >

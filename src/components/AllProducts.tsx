@@ -3,10 +3,10 @@ import { type Product } from "@/lib/utils";
 
 export default function AllProducts({ products }: { products: Product[] }) {
   return (
-    <section id="সব-পণ্য" className="py-8">
+    <section id="সব-পণ্য" className="py-8 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4">
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">সব পণ্য</h2>
+          <h2 className="text-2xl font-bold text-gray-900">সব পণ্য</h2>
           <p className="text-gray-500 text-sm mt-1">
             মোট {products.length}টি পণ্যের আজকের বাজার দর
           </p>
