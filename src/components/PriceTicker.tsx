@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { formatPrice, toBengaliNumber, type Product } from "@/lib/utils";
+import { formatPrice, toBengaliNumber, fetchApi, type Product } from "@/lib/utils";
 
 export default function PriceTicker() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch("https://api.api-store.workers.dev/api/bazardor/products")
-      .then((res) => res.json())
+    fetchApi<Product[]>("/products")
       .then((data) => setProducts(data))
       .catch((err) => console.error(err));
   }, []);

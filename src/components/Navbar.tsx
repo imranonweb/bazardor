@@ -6,7 +6,7 @@ import { useSession, signOut } from "@/lib/auth-client";
 import { usePathname, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import PriceTicker from "./PriceTicker";
-import { getBanglaDate, type Category } from "@/lib/utils";
+import { getBanglaDate, fetchApi, type Category } from "@/lib/utils";
 
 export default function Navbar() {
   const { data: session, isPending } = useSession();
@@ -16,8 +16,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    fetch("https://api.api-store.workers.dev/api/bazardor/categories")
-      .then((res) => res.json())
+    fetchApi<Category[]>("/categories")
       .then((data) => setCategories(data))
       .catch((err) => console.error(err));
   }, []);

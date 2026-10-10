@@ -1,3 +1,22 @@
+const BASE_URL_1 = "https://api.api-store.workers.dev/api/bazardor";
+const BASE_URL_2 = "https://api.abcz.workers.dev/api/bazardor";
+
+export async function fetchApi<T>(endpoint: string, options?: RequestInit): Promise<T> {
+  const cleanEndpoint = endpoint.startsWith("/") ? endpoint : `/${endpoint}`;
+  try {
+    const res = await fetch(`${BASE_URL_1}${cleanEndpoint}`, options);
+    if (res.ok) {
+      return (await res.json()) as T;
+    }
+  } catch {}
+
+  const res2 = await fetch(`${BASE_URL_2}${cleanEndpoint}`, options);
+  if (!res2.ok) {
+    throw new Error(`Failed to fetch from both APIs: ${cleanEndpoint}`);
+  }
+  return (await res2.json()) as T;
+}
+
 export function toBengaliNumber(num: number | string): string {
   const bengaliDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
   return String(num).replace(/[0-9]/g, (d) => bengaliDigits[parseInt(d)]);
