@@ -7,7 +7,7 @@
 
 ## 🔗 গুরুত্বপূর্ণ লিংক (Submission Links)
 
-- **🌐 লাইভ সাইট (Live Link):** [https://bazardor.vercel.app](https://bazardor.vercel.app) *(বা আপনার ডিপ্লয়মেন্ট লিংক)*
+- **🌐 লাইভ সাইট (Live Link):** [https://bazardor-amber.vercel.app](https://bazardor-amber.vercel.app)
 - **📂 গিটহাব রিপোজিটরি (GitHub Repository):** [https://github.com/imranonweb/bazardor](https://github.com/imranonweb/bazardor)
 
 ---
