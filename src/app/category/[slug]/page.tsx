@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 import SortDropdown from "@/components/SortDropdown";
-import { fetchApi, type Product, type Category } from "@/lib/utils";
+import { fetchApi, toBengaliNumber, type Product, type Category } from "@/lib/utils";
 import Link from "next/link";
 
 export default function CategoryPage() {
@@ -102,7 +102,7 @@ export default function CategoryPage() {
             {category?.nameBn}
           </h1>
           <p className="text-gray-500 text-sm mt-1">
-            এই ক্যাটাগরিতে মোট {products.length}টি পণ্য
+            মোট {toBengaliNumber(products.length)}টি পণ্য দেখানো হচ্ছে
           </p>
         </div>
         <SortDropdown value={sortBy} onChange={setSortBy} />

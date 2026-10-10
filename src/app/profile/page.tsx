@@ -32,19 +32,19 @@ export default function ProfilePage() {
       <div className="card bg-white border shadow">
         <div className="card-body">
           <div className="flex items-center gap-4 mb-6">
-            <div className="avatar placeholder">
-              <div className="bg-green-100 text-green-700 rounded-full w-16">
-                <span className="text-2xl">
-                  {session.user.image ? (
-                    <img
-                      src={session.user.image}
-                      alt={session.user.name}
-                      className="rounded-full"
-                    />
-                  ) : (
-                    session.user.name?.charAt(0) || "U"
-                  )}
-                </span>
+            <div className="avatar">
+              <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-green-500/20 shadow-sm">
+                {session.user.image ? (
+                  <img
+                    src={session.user.image}
+                    alt={session.user.name || "User"}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="bg-green-100 text-green-700 w-full h-full flex items-center justify-center font-bold text-2xl">
+                    {session.user.name?.charAt(0) || "U"}
+                  </div>
+                )}
               </div>
             </div>
             <div>

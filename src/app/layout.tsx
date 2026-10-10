@@ -8,6 +8,8 @@ import { Toaster } from "react-hot-toast";
 const hindSiliguri = Hind_Siliguri({
   subsets: ["bengali", "latin"],
   weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-hind-siliguri",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -22,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="bn" data-theme="light">
+    <html lang="bn" data-theme="bazardor" className={hindSiliguri.variable}>
       <body className={`${hindSiliguri.className} bg-gray-50 text-gray-900 antialiased`}>
         <Navbar />
         <main className="min-h-screen">{children}</main>

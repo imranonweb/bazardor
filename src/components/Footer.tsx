@@ -1,20 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-8">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
-          <span className="text-2xl">🛒</span>
-          <div>
-            <h3 className="text-lg font-bold text-white">বাজার দর</h3>
-            <p className="text-sm text-gray-400">
-              প্রয়োজনীয় পণ্যের দাম এক নজরে।
-            </p>
-          </div>
-        </div>
-
-        <p className="text-sm text-gray-400 text-center md:text-right max-w-md">
-          সকল দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে পরিবর্তিত হয়।
-        </p>
+    <footer className="mt-12 border-t border-gray-200 bg-white">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-sm text-gray-500 sm:flex-row">
+        <p className="font-medium text-gray-700">বাজার দর — প্রয়োজনীয় পণ্যের দাম এক নজরে।</p>
+        <p className="text-gray-500">সকল দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে পরিবর্তিত হয়।</p>
       </div>
     </footer>
   );

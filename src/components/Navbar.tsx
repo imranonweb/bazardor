@@ -68,11 +68,19 @@ export default function Navbar() {
                 role="button"
                 className="btn btn-ghost btn-sm gap-2"
               >
-                <div className="avatar placeholder">
-                  <div className="bg-green-100 text-green-700 rounded-full w-8">
-                    <span className="text-sm">
-                      {session.user.name?.charAt(0) || "U"}
-                    </span>
+                <div className="avatar">
+                  <div className="rounded-full w-8 h-8 overflow-hidden ring-1 ring-green-500/20">
+                    {session.user.image ? (
+                      <img
+                        src={session.user.image}
+                        alt={session.user.name || "User"}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="bg-green-100 text-green-700 w-full h-full flex items-center justify-center font-bold text-sm">
+                        {session.user.name?.charAt(0) || "U"}
+                      </div>
+                    )}
                   </div>
                 </div>
                 <span className="text-gray-800 font-medium">{session.user.name}</span>

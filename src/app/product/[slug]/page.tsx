@@ -5,7 +5,14 @@ import { notFound } from "next/navigation";
 async function getProduct(slug: string): Promise<Product | null> {
   try {
     const products = await fetchApi<Product[]>("/products", { next: { revalidate: 60 } });
-    return products.find((p) => p.slug === slug) || null;
+    return (
+      products.find(
+        (p) =>
+          p.slug === slug ||
+          String(p.id) === slug ||
+          encodeURIComponent(p.slug) === slug
+      ) || null
+    );
   } catch {
     return null;
   }

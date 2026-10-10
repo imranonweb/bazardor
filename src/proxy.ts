@@ -11,7 +11,10 @@ export async function proxy(request: NextRequest) {
   const user = session?.user;
 
   if (!user) {
-    return NextResponse.redirect(new URL("/signin", request.url));
+    const signInUrl = new URL("/signin", request.url);
+    signInUrl.searchParams.set("callbackUrl", request.nextUrl.pathname);
+    signInUrl.searchParams.set("redirected", "true");
+    return NextResponse.redirect(signInUrl);
   }
 
   return NextResponse.next();

@@ -12,7 +12,18 @@ export default function PriceTicker() {
       .catch((err) => console.error(err));
   }, []);
 
-  if (products.length === 0) return null;
+  if (products.length === 0) {
+    return (
+      <div className="bg-white border-t border-b border-gray-200 overflow-hidden py-2.5 px-4" role="marquee" aria-label="আজকের দাম পরিবর্তনের তালিকা">
+        <div className="flex items-center gap-8 animate-pulse">
+          <div className="h-4 bg-gray-200 rounded w-48"></div>
+          <div className="h-4 bg-gray-200 rounded w-40"></div>
+          <div className="h-4 bg-gray-200 rounded w-52"></div>
+          <div className="h-4 bg-gray-200 rounded w-44"></div>
+        </div>
+      </div>
+    );
+  }
 
   const unitMap: Record<string, string> = {
     kg: "কেজি",
