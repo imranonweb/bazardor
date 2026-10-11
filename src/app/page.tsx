@@ -5,7 +5,12 @@ import AllProducts from "@/components/AllProducts";
 import { fetchApi, type Product } from "@/lib/utils";
 
 async function getProducts(): Promise<Product[]> {
-  return await fetchApi<Product[]>("/products", { next: { revalidate: 60 } });
+  try {
+    return await fetchApi<Product[]>("/products", { next: { revalidate: 60 } });
+  } catch (error) {
+    console.error("Failed to fetch products for Home page:", error);
+    return [];
+  }
 }
 
 export default async function HomePage() {

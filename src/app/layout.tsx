@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="bn" data-theme="bazardor" className={hindSiliguri.variable}>
-      <body className={`${hindSiliguri.className} bg-gray-50 text-gray-900 antialiased`}>
+      <body className={`${hindSiliguri.className} font-light bg-gray-50 text-gray-900 antialiased`}>
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

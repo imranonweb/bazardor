@@ -1,10 +1,10 @@
 import ProductCard from "./ProductCard";
 import { type Product } from "@/lib/utils";
 
-export default function PriceRisers({ products }: { products: Product[] }) {
-  const risers = products
-    .filter((p) => p.change.dir === "up")
-    .sort((a, b) => b.change.pct - a.change.pct)
+export default function PriceRisers({ products }: { products?: Product[] }) {
+  const risers = (products || [])
+    .filter((p) => p.change?.dir === "up")
+    .sort((a, b) => (b.change?.pct || 0) - (a.change?.pct || 0))
     .slice(0, 6);
 
   if (risers.length === 0) return null;

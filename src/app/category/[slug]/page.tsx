@@ -22,16 +22,28 @@ export default function CategoryPage() {
     setLoading(true);
     setError(false);
 
-    Promise.all([
+    Promise.allSettled([
       fetchApi<Product[]>(`/products?category=${slug}`),
       fetchApi<Category>(`/categories/${slug}`),
     ])
-      .then(([productsData, categoryData]) => {
+      .then(([productsResult, categoryResult]) => {
+        const productsData =
+          productsResult.status === "fulfilled" ? productsResult.value : [];
+        const categoryData =
+          categoryResult.status === "fulfilled" ? categoryResult.value : null;
+
         if (!productsData || productsData.length === 0) {
           setError(true);
         } else {
           setProducts(productsData);
-          setCategory(categoryData);
+          setCategory(
+            categoryData || {
+              id: slug,
+              slug,
+              nameBn: productsData[0]?.categoryNameBn || slug,
+              icon: productsData[0]?.categoryIcon || "🏷️",
+            }
+          );
         }
         setLoading(false);
       })
